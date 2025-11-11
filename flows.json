@@ -1,0 +1,441 @@
+[
+    {
+        "id": "a1b2c3d4e5f6",
+        "type": "tab",
+        "label": "Estação Bem-Estar",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "func_status",
+        "type": "function",
+        "z": "a1b2c3d4e5f6",
+        "name": "Verifica Conforto",
+        "func": "let t = msg.payload.temperatura;\nlet u = msg.payload.umidade;\nlet l = msg.payload.luz;\n\nif (t > 28 || u < 40 || l < 800) {\n    msg.payload = \"⚠️ Condições fora do ideal!\";\n} else {\n    msg.payload = \"✅ Ambiente confortável\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 340,
+        "wires": [
+            [
+                "ui_text_status"
+            ]
+        ]
+    },
+    {
+        "id": "ui_temp",
+        "type": "ui-gauge",
+        "z": "a1b2c3d4e5f6",
+        "name": "Temperatura",
+        "group": "ui_group_sensores",
+        "order": 1,
+        "value": "payload.temperatura",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Temperatura (°C)",
+        "alwaysShowTitle": false,
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "-30",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "0",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "30",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "-30",
+        "max": "60",
+        "sizeThickness": "16",
+        "sizeGap": "4",
+        "sizeKeyThickness": "8",
+        "className": "",
+        "x": 710,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_umid",
+        "type": "ui-gauge",
+        "z": "a1b2c3d4e5f6",
+        "name": "Umidade",
+        "group": "ui_group_sensores",
+        "order": 4,
+        "value": "payload.umidade",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Umidade (%)",
+        "alwaysShowTitle": false,
+        "units": "%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "33",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "66",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "0",
+        "max": "100",
+        "sizeThickness": "16",
+        "sizeGap": "4",
+        "sizeKeyThickness": "8",
+        "className": "",
+        "x": 700,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_dist",
+        "type": "ui-gauge",
+        "z": "a1b2c3d4e5f6",
+        "name": "Distância",
+        "group": "ui_group_sensores",
+        "order": 3,
+        "value": "payload.distancia",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Distância (cm)",
+        "alwaysShowTitle": false,
+        "units": "cm",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "133",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "266",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "0",
+        "max": "400",
+        "sizeThickness": "16",
+        "sizeGap": "4",
+        "sizeKeyThickness": "8",
+        "className": "",
+        "x": 700,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_text_status",
+        "type": "ui-text",
+        "z": "a1b2c3d4e5f6",
+        "group": "ui_group_status",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "name": "Status do Ambiente",
+        "label": "Status",
+        "layout": "row-left",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "wrapText": false,
+        "className": "",
+        "value": "payload",
+        "valueType": "msg",
+        "x": 730,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "2ce5eb407304e239",
+        "type": "mqtt in",
+        "z": "a1b2c3d4e5f6",
+        "name": "Wokwi",
+        "topic": "/AllData",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "cc08b5cacd13759d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "2dc452a618b823cf",
+                "ui_temp",
+                "ui_umid",
+                "ui_dist",
+                "func_status",
+                "ui_luz"
+            ]
+        ]
+    },
+    {
+        "id": "2dc452a618b823cf",
+        "type": "debug",
+        "z": "a1b2c3d4e5f6",
+        "name": "Debug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ui_luz",
+        "type": "ui-gauge",
+        "z": "a1b2c3d4e5f6",
+        "name": "Luminosidade",
+        "group": "ui_group_sensores",
+        "order": 2,
+        "value": "payload.luz",
+        "valueType": "msg",
+        "width": "3",
+        "height": "3",
+        "gtype": "gauge-half",
+        "gstyle": "needle",
+        "title": "Luz (LDR)",
+        "alwaysShowTitle": false,
+        "units": "ADC",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "1365",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "2430",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": "0",
+        "max": "4095",
+        "sizeThickness": "16",
+        "sizeGap": "4",
+        "sizeKeyThickness": "8",
+        "className": "",
+        "x": 720,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ui_group_sensores",
+        "type": "ui-group",
+        "name": "Sensores",
+        "page": "ui_page",
+        "width": "6",
+        "height": "",
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "ui_group_status",
+        "type": "ui-group",
+        "name": "Status",
+        "page": "ui_page",
+        "width": "6",
+        "height": "",
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
+    },
+    {
+        "id": "cc08b5cacd13759d",
+        "type": "mqtt-broker",
+        "name": "MQTT IN",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "ui_page",
+        "type": "ui-page",
+        "name": "Bem-Estar",
+        "ui": "9716722d5244bd2d",
+        "path": "/dashboard",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "a65ebc9bc30744d9",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "9716722d5244bd2d",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "a65ebc9bc30744d9",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "0b0545b5542fb291",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.29.0"
+        }
+    }
+]
