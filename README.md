@@ -53,7 +53,7 @@ Essa estação visa melhorar o bem-estar, saúde e produtividade, representando 
 - LED (verde/vermelho): indica boas/más condições de trabalho.
 - Buzzer: emite alerta sonoro quando o trabalhador ultrapassa tempo limite sem pausa.
 
-
+<img src="https://github.com/Rafafaaa-FIAP/GS05-iot/blob/main/images/circuit.png" alt="circuit" width="500" />
 
 ### Funcionamento da Lógica
 - O sistema lê os dados dos sensores a cada poucos segundos.
@@ -67,22 +67,22 @@ Essa estação visa melhorar o bem-estar, saúde e produtividade, representando 
   - Acende LED verde se tudo estiver bom; vermelho se alguma condição ruim.
   - Aciona buzzer quando a pausa for necessária.
 
-
-
 ### Fluxo
-<img src="https://github.com/Rafafaaa-FIAP/EDG-sem2-checkpoint1/blob/main/images/flow.png" alt="circuit 5" width="500" />
-<h6>Acesse o JSON para importação no Node-RED clicando <a href="https://github.com/Rafafaaa-FIAP/EDG-sem2-checkpoint1/blob/main/flows.json">aqui</a>.</h6>
+<img src="https://github.com/Rafafaaa-FIAP/GS05-iot/blob/main/images/flow.png" alt="circuit 5" width="500" />
+<h6>Acesse o JSON para importação no Node-RED clicando <a href="https://github.com/Rafafaaa-FIAP/GS05-iot/blob/main/flows.json">aqui</a>.</h6>
 
 ### Dashboard
-<img src="https://github.com/Rafafaaa-FIAP/EDG-sem2-checkpoint1/blob/main/images/dashboard.png" alt="circuit 5" width="500" />
+<img src="https://github.com/Rafafaaa-FIAP/GS05-iot/blob/main/images/dashboard.png" alt="circuit 5" width="500" />
 
 ## :gear: Como Utilizar
-1. Instalar o Node-RED;
-2. Baixar o [código](https://github.com/Rafafaaa-FIAP/EDG-sem2-checkpoint1/blob/main/code.ino) da solução e instalar as bibliotecas ArduinoJson e DHT sensor library;
-3. Montar o circuito;
-4. Conectar o Arduino no computador e fazer upload do código para o Arduino;
+1. Baixar o projeto e abri-lo no VSCode;
+2. Instalar a extensão PlatformIO e realizar o build do projeto;
+3. Iniciar a simulação do arquivo diagram.json;
+4. Instalar o Node-RED;
 5. Iniciar o Node-RED no computador;
-6. Importar o [fluxo](https://github.com/Rafafaaa-FIAP/EDG-sem2-checkpoint1/blob/main/flows.json) no Node-RED no computador e fazer o deploy.
+6. Instalar o pacote @flowfuse/node-red-dashboard no Node-RED;
+7. Importar o [fluxo](https://github.com/Rafafaaa-FIAP/GS05-iot/blob/main/flows.json) no Node-RED no computador e fazer o deploy;
+8. O dashboard ficará disponível em [http://127.0.0.1:1880/dashboard/dashboard](http://127.0.0.1:1880/dashboard/dashboard).
 
 ## :technologist: Integrantes
 * RM 553377 - Enzo de Oliveira Rodrigues
