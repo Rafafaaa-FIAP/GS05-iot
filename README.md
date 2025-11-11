@@ -85,5 +85,6 @@ Essa estação visa melhorar o bem-estar, saúde e produtividade, representando 
 8. O dashboard ficará disponível em [http://127.0.0.1:1880/dashboard/dashboard](http://127.0.0.1:1880/dashboard/dashboard).
 
 ## :technologist: Integrantes
-* RM 553377 - Enzo de Oliveira Rodrigues
-* RM 553521 - Rafael Cristofali
+* RM553377 - Enzo Rodrigues
+* RM553266 - Hugo Santos
+* RM553521 - Rafael Cristofali
