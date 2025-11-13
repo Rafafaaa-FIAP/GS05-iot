@@ -74,6 +74,9 @@ Essa estação visa melhorar o bem-estar, saúde e produtividade, representando 
 ### Dashboard
 <img src="https://github.com/Rafafaaa-FIAP/GS05-iot/blob/main/images/dashboard.png" alt="circuit 5" width="500" />
 
+### Vídeo
+Acesse o vídeo demonstrativo clicando [aqui](https://www.youtube.com/watch?v=VYlXzOkwrgM).
+
 ## :gear: Como Utilizar
 1. Baixar o projeto e abri-lo no VSCode;
 2. Instalar a extensão PlatformIO e realizar o build do projeto;
